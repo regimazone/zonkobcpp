@@ -4,6 +4,7 @@
 #include "llama-batch.h"
 #include "llama-hparams.h"
 #include "llama-adapter.h"
+#include "llama-hypergraph-identity.h"
 
 #include <cstdint>
 #include <vector>
@@ -422,6 +423,9 @@ struct llm_graph_params {
 
     llm_graph_result * res;
 
+    // Regimazone HyperGraphQL OrgAware Identity Framework
+    regimazone::hypergraph_identity_framework * hgif = nullptr;
+
     // return true if the "other" params would result in a graph with the same topology as with the current params
     //   having the same topology allows us to reuse the graph in some cases
     bool allow_reuse(const llm_graph_params & other) const {
@@ -580,6 +584,9 @@ struct llm_graph_context {
     const llama_cross            * cross;
 
     const llm_graph_cb & cb_func;
+
+    // Regimazone HyperGraphQL OrgAware Identity Framework
+    regimazone::hypergraph_identity_framework * hgif;
 
     llm_graph_result * res;
 

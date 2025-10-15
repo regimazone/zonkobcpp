@@ -609,6 +609,7 @@ llm_graph_context::llm_graph_context(const llm_graph_params & params) :
     mctx             (params.mctx),
     cross            (params.cross),
     cb_func          (params.cb),
+    hgif             (params.hgif),
     res              (params.res),
     ctx0             (res->get_ctx()),
     gf               (res->get_gf()) {
