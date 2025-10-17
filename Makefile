@@ -777,11 +777,11 @@ mtmd-cli: tools/mtmd/mtmd-cli.cpp tools/mtmd/mtmd.cpp tools/mtmd/mtmd-helper.cpp
 embedding: examples/embedding/embedding.cpp common/arg.cpp src/llama-cparams.cpp build-info.h ggml.o ggml-cpu.o ggml-ops.o ggml-vec.o ggml-binops.o ggml-unops.o llama.o console.o llavaclip_default.o llava.o ggml-backend_default.o ggml-backend-reg_default.o ggml-repack.o $(OBJS_FULL) $(OBJS)
 	$(CXX) $(CXXFLAGS) $(filter-out %.h,$^) -o $@ $(LDFLAGS)
 
-# Regimazone HyperGraphQL OrgAware Identity Framework
-test-hypergraph-identity: tests/test-hypergraph-identity.cpp src/llama-hypergraph-identity.cpp src/llama-hypergraph-identity.h build-info.h ggml.o ggml-alloc.o ggml-backend.o ggml-backend-reg.o
+# Regimazone HyperGraphQL OrgAware Identity Framework (Standalone - no ggml linking required)
+test-hypergraph-identity: tests/test-hypergraph-identity.cpp src/llama-hypergraph-identity.cpp src/llama-hypergraph-identity.h
 	$(CXX) $(CXXFLAGS) -Isrc -Iggml/include -Iggml/src $(filter-out %.h,$^) -o $@ $(LDFLAGS)
 
-hypergraph-identity-demo: examples/hypergraph-identity/hypergraph-identity.cpp src/llama-hypergraph-identity.cpp src/llama-hypergraph-identity.h build-info.h ggml.o ggml-alloc.o ggml-backend.o ggml-backend-reg.o
+hypergraph-identity-demo: examples/hypergraph-identity/hypergraph-identity.cpp src/llama-hypergraph-identity.cpp src/llama-hypergraph-identity.h
 	$(CXX) $(CXXFLAGS) -Isrc -Iggml/include -Iggml/src $(filter-out %.h,$^) -o $@ $(LDFLAGS)
 
 embeddingvk: examples/embedding/embedding.cpp common/arg.cpp src/llama-cparams.cpp build-info.h ggml_v4_vulkan.o ggml-cpu.o ggml-ops.o ggml-vec.o ggml-binops.o ggml-unops.o llama.o console.o llavaclip_vulkan.o llava.o ggml-backend_vulkan.o ggml-backend-reg_vulkan.o ggml-vulkan.o ggml-vulkan-shaders.o ggml-repack.o $(OBJS_FULL) $(OBJS) lib/vulkan-1.lib
