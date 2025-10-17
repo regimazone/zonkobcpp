@@ -185,6 +185,39 @@ and it will install everything required. Alternatively, you can download the abo
 - **I try to keep backwards compatibility with ALL past llama.cpp models**. But you are also encouraged to reconvert/update your models if possible for best results.
 - Since v1.75, openblas has been deprecated and removed in favor of the native CPU implementation.
 
+## Regimazone HyperGraphQL OrgAware Identity Framework
+
+A powerful graph-based identity management system with organizational context awareness, integrated into KoboldCpp.
+
+### Overview
+The Regimazone HyperGraphQL OrgAware Identity Framework provides:
+- **Identity Nodes**: Manage identities with types (NODE, EDGE, HYPEREDGE, ORG_CONTEXT)
+- **HyperEdges**: Connect multiple nodes in complex multi-node relationships
+- **Organizational Context**: Track and enforce org-aware access control at NONE, BASIC, CONTEXTUAL, or HIERARCHICAL levels
+- **Query Operations**: Find identities by type, connection, or relationship
+- **Graph Operations**: Cascade deletion, relationship tracking, and more
+
+### Quick Start
+```bash
+# Build and run tests
+make test-hypergraph-identity
+./test-hypergraph-identity
+
+# Build and run example
+make hypergraph-identity-demo
+./hypergraph-identity-demo
+```
+
+### Documentation
+- Comprehensive guide: `docs/hypergraph-identity-framework.md`
+- Example code: `examples/hypergraph-identity/`
+- Unit tests: `tests/test-hypergraph-identity.cpp`
+- Header: `src/llama-hypergraph-identity.h`
+- Implementation: `src/llama-hypergraph-identity.cpp`
+
+### Integration
+The framework is integrated into the main build via the `GPTTYPE_ADAPTER` variable in the Makefile. It can be used standalone or as part of the larger llama.cpp/koboldcpp infrastructure, with optional GGML tensor operations support.
+
 ## License
 - The original GGML library, stable-diffusion.cpp and llama.cpp by ggerganov are licensed under the MIT License
 - However, KoboldAI Lite is licensed under the AGPL v3.0 License
