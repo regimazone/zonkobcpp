@@ -150,3 +150,5 @@ conda/
 
 # Jetbrains idea folder
 .idea/
+/test-hypergraph-identity
+/hypergraph-identity-demo

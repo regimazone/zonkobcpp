@@ -4,6 +4,26 @@
 
 The Regimazone HyperGraphQL OrgAware Identity Framework is a graph-based identity management system that provides organizational context awareness and hypergraph query capabilities. It extends the existing llama.cpp/koboldcpp graph infrastructure with identity tracking and relationship management.
 
+## Build System Integration
+
+The framework is fully integrated into the koboldcpp build system:
+
+- **Source Files**: `src/llama-hypergraph-identity.cpp` is included in the `GPTTYPE_ADAPTER` build target
+- **Tests**: Run `make tests` to build and run `test-hypergraph-identity`
+- **Examples**: Run `make examples` to build `hypergraph-identity-demo`
+- **Standalone Builds**: Tests and examples can be built independently without requiring the full ggml library
+
+Quick start:
+```bash
+# Build and run tests
+make test-hypergraph-identity
+./test-hypergraph-identity
+
+# Build and run example
+make hypergraph-identity-demo
+./hypergraph-identity-demo
+```
+
 ## Architecture
 
 ### Core Components
@@ -197,6 +217,11 @@ The framework includes comprehensive unit tests covering:
 
 Run tests:
 ```bash
+# Using the Makefile
+make test-hypergraph-identity
+./test-hypergraph-identity
+
+# Or build manually
 g++ -std=c++17 -I. -Iggml/include -Isrc \
     tests/test-hypergraph-identity.cpp \
     src/llama-hypergraph-identity.cpp \
@@ -207,6 +232,20 @@ g++ -std=c++17 -I. -Iggml/include -Isrc \
 ## Example Application
 
 See `examples/hypergraph-identity/` for a complete demonstration application.
+
+Run the example:
+```bash
+# Using the Makefile
+make hypergraph-identity-demo
+./hypergraph-identity-demo
+
+# Or build manually
+g++ -std=c++17 -I. -Iggml/include -Isrc \
+    examples/hypergraph-identity/hypergraph-identity.cpp \
+    src/llama-hypergraph-identity.cpp \
+    -o hypergraph-identity-demo
+./hypergraph-identity-demo
+```
 
 ## Future Extensions
 

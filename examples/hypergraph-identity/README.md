@@ -17,7 +17,10 @@ The framework provides identity-aware graph query capabilities with organization
 To build the example:
 
 ```bash
-# Standalone (no GGML integration)
+# Using the Makefile (recommended)
+make hypergraph-identity-demo
+
+# Or standalone (no GGML integration)
 g++ -std=c++17 -I. -Iggml/include -Iggml/src -Iinclude -Isrc \
     examples/hypergraph-identity/hypergraph-identity.cpp \
     src/llama-hypergraph-identity.cpp \
